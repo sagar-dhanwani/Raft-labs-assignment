@@ -1,6 +1,0 @@
-2025-01-27T16:40:36.243Z error: Authentication error: Invalid token
-2025-01-27T16:43:21.879Z error: Authentication error: Invalid token
-2025-01-27T16:44:18.853Z error: Authentication error: Invalid token
-2025-01-27T16:45:43.701Z error: Authentication error: Invalid token
-2025-01-27T16:57:42.229Z error: Error starting server: Looks like you've forgot to provide `pubSub` option in `buildSchema()`. Subscriptions can't work without a proper PubSub system.
-2025-01-27T17:05:49.570Z error: Error starting server: Looks like you've forgot to provide `pubSub` option in `buildSchema()`. Subscriptions can't work without a proper PubSub system.
