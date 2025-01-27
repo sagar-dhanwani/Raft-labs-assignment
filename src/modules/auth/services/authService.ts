@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   async generateToken(user: User): Promise<string> {
-    return jwt.sign({ id: user.id, email: user.email }, config.JWT_SECRET, { expiresIn: '1h' });
+    return jwt.sign({ id: user.id, email: user.email }, config.JWT_SECRET as string, { expiresIn: '1h' });
   }
 
   async getUserByEmail(email: string): Promise<User | null> {

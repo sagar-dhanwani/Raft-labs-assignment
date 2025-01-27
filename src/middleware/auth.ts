@@ -9,7 +9,7 @@ export const authChecker: AuthChecker<any> = ({ context }, roles): boolean => {
   }
 
   try {
-    const decoded = jwt.verify(token, config.JWT_SECRET);
+    const decoded = jwt.verify(token, config.JWT_SECRET!);
     context.user = decoded;
     return true;
   } catch (err) {

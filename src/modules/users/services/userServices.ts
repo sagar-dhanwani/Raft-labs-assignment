@@ -13,4 +13,10 @@ export class UserService {
   async hashPassword(password: string): Promise<string> {
     return await bcrypt.hash(password, 10);
   }
+
+  async createUser(email: string, password: string): Promise<User> {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new UserModel({ email, password: hashedPassword });
+    return await user.save();
+  }
 }

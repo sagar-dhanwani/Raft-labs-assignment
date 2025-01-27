@@ -1,9 +1,8 @@
-import { Resolver, Query, Arg, Mutation } from 'type-graphql';
-import { User, UserModel } from '../schema/userSchema';
+import { Resolver, Query, Mutation, Arg } from 'type-graphql';
+import { User } from '../schema/userSchema';
 import { UserService } from '../services/userServices';
 
-
-@Resolver(() => User)
+@Resolver()
 export class UserResolver {
   private userService = new UserService();
 
@@ -22,8 +21,6 @@ export class UserResolver {
     @Arg('email') email: string,
     @Arg('password') password: string
   ): Promise<User> {
-    const hashedPassword = await this.userService.hashPassword(password);
-    const user = new UserModel({ email, password: hashedPassword });
-    return await user.save();
+    return this.userService.createUser(email, password);
   }
 }
