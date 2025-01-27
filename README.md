@@ -9,7 +9,6 @@ A robust GraphQL API developed with Node.js, Express, TypeScript, and MongoDB fo
 - [Running the Project](#running-the-project)
 - [API Documentation](#api-documentation)
 - [Postman Collection](#postman-collection)
-- [License](#license)
 
 ## Project Structure
 ```
@@ -59,33 +58,39 @@ Raft-labs-assignment/
    ```sh
    git clone https://github.com/your-username/raft-labs-assignment.git
    cd raft-labs-assignment
+   ```
 
 2. Install dependencies:
-npm install
+   ```sh
+   npm install
+   ```
 
 3. Create a .env file in the root directory with the following content:
-JWT_SECRET=your_jwt_secret
-MONGO_URI=mongodb://mongo:27017/raft-labs-db
+   ```env
+   JWT_SECRET=your_jwt_secret
+   MONGO_URI=mongodb://mongo:27017/raft-labs-db
+   ```
 
-Environment Variables
+## Environment Variables
 Ensure that the following environment variables are set:
 
-JWT_SECRET: The secret key for JWT authentication.
-MONGO_URI: The MongoDB connection URI.
-Running the Project
+- `JWT_SECRET`: The secret key for JWT authentication.
+- `MONGO_URI`: The MongoDB connection URI.
+
+## Running the Project
 To run the project, use the following commands:
-
+```sh
 docker-compose up --build
-
+```
 This will build and start the Docker containers for the application and MongoDB.
 
-API Documentation
-The API documentation is available at http://localhost:4000/api-docs.
+## API Documentation
+The API documentation is available at [http://localhost:4000/api-docs](http://localhost:4000/api-docs).
 
-Postman Collection
+## Postman Collection
 A Postman collection for all the APIs is included in the project. You can import the collection into Postman using the following steps:
 
-Open Postman.
-Click on the "Import" button.
-Select the Raft-Labs-Assignment-API.postman_collection.json file from the postman folder in the project directory.
-Click "Import" to add the collection to Postman.
+1. Open Postman.
+2. Click on the "Import" button.
+3. Select the `Raft-Labs-Assignment-API.postman_collection.json` file from the postman folder in the project directory.
+4. Click "Import" to add the collection to Postman.
