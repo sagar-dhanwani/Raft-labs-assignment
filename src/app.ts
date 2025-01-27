@@ -1,19 +1,13 @@
-// src/app.ts
-import express from "express";
-import { graphqlHTTP } from "express-graphql";
-import { schema } from "./modules/graphql/schema";
-import { authMiddleware } from "./middleware/auth";
+import express from 'express';
+import { json } from 'body-parser';
+import cors from 'cors';
 
-const app = express();
+const createApp = (): express.Application => {
+  const app = express();
+  app.use(cors());
+  app.use(json());
 
-app.use(express.json());
-app.use(authMiddleware);
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
+  return app;
+};
 
-export default app;
+export default createApp

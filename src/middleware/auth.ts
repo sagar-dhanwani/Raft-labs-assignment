@@ -1,17 +1,18 @@
-// src/middleware/auth.ts
-import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import { AuthChecker } from 'type-graphql';
+import jwt from 'jsonwebtoken';
+import { config } from '../config/config';
 
-export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.headers.authorization?.split(" ")[1];
-
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
+export const authChecker: AuthChecker<any> = ({ context }, roles): boolean => {
+  const token = context.req.headers.authorization?.split(' ')[1];
+  if (!token) {
+    return false;
+  }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || "default_secret");
-    req.user = decoded;
-    next();
+    const decoded = jwt.verify(token, config.JWT_SECRET);
+    context.user = decoded;
+    return true;
   } catch (err) {
-    return res.status(401).json({ message: "Invalid token" });
+    return false;
   }
 };

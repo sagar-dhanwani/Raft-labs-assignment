@@ -1,13 +1,15 @@
-// src/config/database.ts
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import logger from '../utils/logger';
 
-export const connectToDatabase = async () => {
+const connectToDatabase = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/graphql-api", {
+        await mongoose.connect(process.env.MONGO_URI || '', {
         });
-        console.log("Database connected successfully");
-    } catch (err) {
-        console.error("Database connection failed", err);
+        logger.info('Connected to MongoDB');
+    } catch (error) {
+        logger.error('Error connecting to MongoDB:', error);
         process.exit(1);
     }
 };
+
+export default connectToDatabase;
