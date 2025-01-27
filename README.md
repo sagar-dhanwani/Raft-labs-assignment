@@ -12,8 +12,41 @@ A robust GraphQL API developed with Node.js, Express, TypeScript, and MongoDB fo
 - [License](#license)
 
 ## Project Structure
-
-Raft-labs-assignment/ ├── src/ │ ├── app.ts │ ├── config/ │ │ ├── config.ts │ │ ├── database.ts │ │ └── swagger.ts │ ├── middleware/ │ │ ├── auth.ts │ │ └── socketAuth.ts │ ├── modules/ │ │ ├── auth/ │ │ │ ├── resolvers/ │ │ │ │ ├── auth.resolvers.ts │ │ │ │ └── authResponse.ts │ │ │ └── services/ │ │ │ └── authService.ts │ │ ├── users/ │ │ │ ├── resolvers/ │ │ │ │ └── userResolvers.ts │ │ │ ├── schema/ │ │ │ │ └── userSchema.ts │ │ │ └── services/ │ │ │ └── userServices.ts │ ├── utils/ │ │ └── logger.ts │ └── index.ts ├── .env ├── Dockerfile ├── docker-compose.yml ├── package.json ├── tsconfig.json └── README.md
+```
+Raft-labs-assignment/
+├── src/
+│   ├── app.ts
+│   ├── config/
+│   │   ├── config.ts
+│   │   ├── database.ts
+│   │   └── swagger.ts
+│   ├── middleware/
+│   │   ├── auth.ts
+│   │   └── socketAuth.ts
+│   ├── modules/
+│   │   ├── auth/
+│   │   │   ├── resolvers/
+│   │   │   │   ├── auth.resolvers.ts
+│   │   │   │   └── authResponse.ts
+│   │   │   └── services/
+│   │   │       └── authService.ts
+│   │   ├── users/
+│   │   │   ├── resolvers/
+│   │   │   │   └── userResolvers.ts
+│   │   │   ├── schema/
+│   │   │   │   └── userSchema.ts
+│   │   │   └── services/
+│   │   │       └── userServices.ts
+│   ├── utils/
+│   │   └── logger.ts
+│   └── index.ts
+├── .env
+├── Dockerfile
+├── docker-compose.yml
+├── package.json
+├── tsconfig.json
+└── README.md
+```
 
 ## Getting Started
 ### Prerequisites
