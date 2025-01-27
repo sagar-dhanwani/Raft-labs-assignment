@@ -15,6 +15,35 @@ const options = {
         url: 'http://localhost:4000',
       },
     ],
+    components: {
+      schemas: {
+        User: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+            },
+            email: {
+              type: 'string',
+            },
+            password: {
+              type: 'string',
+            },
+          },
+        },
+        AuthResponse: {
+          type: 'object',
+          properties: {
+            token: {
+              type: 'string',
+            },
+            user: {
+              $ref: '#/components/schemas/User',
+            },
+          },
+        },
+      },
+    },
   },
   apis: ['./src/**/*.ts'],
 };

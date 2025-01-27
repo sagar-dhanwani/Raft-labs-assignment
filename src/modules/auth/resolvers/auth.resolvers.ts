@@ -1,11 +1,37 @@
-import { Resolver, Mutation, Arg, } from 'type-graphql';
+import { Resolver, Mutation, Arg } from 'type-graphql';
 import { AuthService } from '../services/authService';
 import { AuthResponse } from './authResponse';
+import { User } from '../../users/schema/userSchema';
 
 @Resolver()
 export class AuthResolver {
   private authService = new AuthService();
 
+  /**
+   * @swagger
+   * /register:
+   *   post:
+   *     summary: Register a new user
+   *     tags: [Auth]
+   *     requestBody:
+   *       required: true
+   *       content:
+   *         application/json:
+   *           schema:
+   *             type: object
+   *             properties:
+   *               email:
+   *                 type: string
+   *               password:
+   *                 type: string
+   *     responses:
+   *       200:
+   *         description: User registered successfully
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/AuthResponse'
+   */
   @Mutation(() => AuthResponse)
   async register(
     @Arg('email') email: string,
@@ -16,6 +42,31 @@ export class AuthResolver {
     return { user, token };
   }
 
+  /**
+   * @swagger
+   * /login:
+   *   post:
+   *     summary: Login a user
+   *     tags: [Auth]
+   *     requestBody:
+   *       required: true
+   *       content:
+   *         application/json:
+   *           schema:
+   *             type: object
+   *             properties:
+   *               email:
+   *                 type: string
+   *               password:
+   *                 type: string
+   *     responses:
+   *       200:
+   *         description: User logged in successfully
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/AuthResponse'
+   */
   @Mutation(() => AuthResponse)
   async login(
     @Arg('email') email: string,
